@@ -1,0 +1,65 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content" >
+	<RelativeLayout android:id="@+id/welcome"
+		android:layout_width="wrap_content" 
+		android:layout_height="match_parent" >
+
+		<RelativeLayout android:id="@+id/content_container" 
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content" >
+
+
+
+			<RelativeLayout android:id="@+id/page_welcome_ek1"
+				android:layout_marginTop="0dp"
+				android:layout_marginStart="0dp"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:background="@drawable/_bg__welcome_ek2_shape"
+				>
+
+				<View
+					android:id="@+id/ellipse_6"
+					android:layout_width="300dp"
+					android:layout_height="300dp"
+					android:layout_alignParentTop="true"
+					android:layout_marginStart="55dp"
+					android:layout_marginTop="174dp"
+					android:background="@drawable/ellipse_6_shape" />
+
+				<ImageView
+					android:id="@+id/shawarma_1"
+					android:layout_width="250dp"
+					android:layout_height="250dp"
+					android:layout_alignStart="@+id/ellipse_6"
+					android:layout_alignTop="@+id/ellipse_6"
+					android:layout_alignEnd="@+id/ellipse_6"
+					android:layout_alignBottom="@+id/ellipse_6"
+					android:layout_marginStart="25dp"
+					android:layout_marginTop="25dp"
+					android:layout_marginEnd="25dp"
+					android:layout_marginBottom="25dp"
+					android:contentDescription="shawarma_1"
+					android:src="@drawable/shawarma_1" />
+
+				<TextView
+					android:id="@+id/welcome_ek3"
+					android:layout_width="316dp"
+					android:layout_height="113dp"
+					android:layout_below="@+id/ellipse_6"
+					android:layout_alignParentBottom="true"
+					android:layout_gravity="center_horizontal|center"
+					android:layout_marginLeft="54dp"
+					android:layout_marginTop="59dp"
+					android:layout_marginBottom="85dp"
+					android:gravity="center"
+					android:text="@string/welcome_ek3_string"
+					android:textColor="@color/welcome_ek3_color"
+					android:textSize="50sp" />
+
+			</RelativeLayout>
+		</RelativeLayout>
+
+	</RelativeLayout>
+</RelativeLayout>

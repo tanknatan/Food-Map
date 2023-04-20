@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- map strings -->
+
+    <string name="mapButtonDescription">mapButton</string>
+    <string name="searchButtonDescription">searchButton</string>
+    <string name="reviewButtonDescription">reviewButton</string>
+    <string name="userProfileButton">userProfile</string>
+
+    <string name="app_name">Food Map</string>
+
+    <string name="welcome_ek3_string">welcome</string>
+
+    <string name="_________________string">Регистрация/Вход  </string>
+    <string name="fullname_string">FullName</string>
+
+    <string name="ek_img_content">ExportKit Image</string>
+    <string name="__userid_string">userid</string>
+    <string name="achievements_string">achievements</string>
+    <string name="quantity_string">quantity</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="____________________________string"> </string>
+    <string name="compass_1">compass_!</string>
+    <string name="setting_lines_1">setting_lines_!</string>
+    <string name="plus_1_1">plus__!__1</string>
+    <string name="minus_1">minus_!</string>
+    <string name="gps_1">gps_!</string>
+</resources>
