@@ -7,29 +7,44 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatImageButton;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
+
+
+
+
+
 public class accountFragment extends Fragment {
+
+    private AppCompatImageButton buttonMap;
+    private AppCompatImageButton buttonReview;
+    private AppCompatImageButton buttonSearch;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.account_r, container, false);
+        View view = inflater.inflate(R.layout.account_r, container, false);
+        return view;
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        requireView().findViewById(R.id.map).setOnClickListener(v -> {
-            Navigation.findNavController(requireView()).navigate(R.id.action_accountFragment_to_mapFragment);
+
+        buttonMap = view.findViewById(R.id.map);
+        buttonReview = view.findViewById(R.id.review);
+        buttonSearch = view.findViewById(R.id.search);
+        buttonMap.setOnClickListener(v->{
+            Navigation.findNavController(view).navigate(R.id.map);
         });
-//        requireView().findViewById(R.id.search).setOnClickListener(v -> {
-//            Navigation.findNavController(requireView()).navigate(R.id.action_accountFragment_to_searchFragment);
-//        });
-//        requireView().findViewById(R.id.review).setOnClickListener(v -> {
-//            Navigation.findNavController(requireView()).navigate(R.id.action_mapFragment_to_reviewFragment);
-//        });
+        buttonReview.setOnClickListener(v->{
+            Navigation.findNavController(view).navigate(R.id.action_accountFragment_to_mapFragment);
+        });
+        buttonSearch.setOnClickListener(v->{
+            Navigation.findNavController(view).navigate(R.id.action_mapFragment_to_searchFragment);
+        });
     }
+
 
 }

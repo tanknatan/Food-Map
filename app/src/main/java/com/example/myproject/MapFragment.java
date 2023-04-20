@@ -4,9 +4,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.appcompat.widget.AppCompatImageButton;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
+import com.example.myproject.databinding.MapRBinding;
 import com.yandex.mapkit.Animation;
 import com.yandex.mapkit.MapKitFactory;
 import com.yandex.mapkit.geometry.Point;
@@ -16,34 +16,32 @@ import com.yandex.mapkit.mapview.MapView;
 public class MapFragment extends Fragment {
 
     private MapView mapView;
-    private AppCompatImageButton buttonUser;
-    private AppCompatImageButton buttonReview;
-    private AppCompatImageButton buttonSearch;
+
+    private MapRBinding binding;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.map_r, container, false);
+        binding = MapRBinding.inflate(inflater);
         MapKitFactory.initialize(requireContext());
 
-        mapView = view.findViewById(R.id.mapview);
-        buttonUser = view.findViewById(R.id.user);
-        buttonReview = view.findViewById(R.id.review);
-        buttonSearch = view.findViewById(R.id.search);
+        mapView = binding.mapview;
+
         mapView.getMap().move(
                 new CameraPosition(new Point(55.751574, 37.573856), 11.0f, 0.0f, 0.0f),
                 new Animation(Animation.Type.SMOOTH, 0),
                 null);
-        buttonUser.setOnClickListener(v->{
-            Navigation.findNavController(view).navigate(R.id.action_mapFragment_to_accountFragment);
+        binding.user.setOnClickListener(v->{
+            Navigation.findNavController(binding.getRoot()).navigate(R.id.action_mapFragment_to_accountFragment);
         });
-        buttonReview.setOnClickListener(v->{
-            Navigation.findNavController(view).navigate(R.id.action_mapFragment_to_reviewFragment);
+        binding.review.setOnClickListener(v->{
+            Navigation.findNavController(binding.getRoot()).navigate(R.id.action_mapFragment_to_reviewFragment);
         });
-        buttonSearch.setOnClickListener(v->{
-            Navigation.findNavController(view).navigate(R.id.action_mapFragment_to_searchFragment);
+        binding.search.setOnClickListener(v->{
+            Navigation.findNavController(binding.getRoot()).navigate(R.id.action_mapFragment_to_searchFragment);
         });
-        return view;
+        return binding.getRoot();
     }
 
     @Override
