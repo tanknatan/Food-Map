@@ -16,7 +16,9 @@ import com.yandex.mapkit.mapview.MapView;
 public class MapFragment extends Fragment {
 
     private MapView mapView;
-    private AppCompatImageButton button;
+    private AppCompatImageButton buttonUser;
+    private AppCompatImageButton buttonReview;
+    private AppCompatImageButton buttonSearch;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -25,13 +27,21 @@ public class MapFragment extends Fragment {
         MapKitFactory.initialize(requireContext());
 
         mapView = view.findViewById(R.id.mapview);
-        button = view.findViewById(R.id.user);
+        buttonUser = view.findViewById(R.id.user);
+        buttonReview = view.findViewById(R.id.review);
+        buttonSearch = view.findViewById(R.id.search);
         mapView.getMap().move(
                 new CameraPosition(new Point(55.751574, 37.573856), 11.0f, 0.0f, 0.0f),
                 new Animation(Animation.Type.SMOOTH, 0),
                 null);
-        button.setOnClickListener(v->{
+        buttonUser.setOnClickListener(v->{
             Navigation.findNavController(view).navigate(R.id.action_mapFragment_to_accountFragment);
+        });
+        buttonReview.setOnClickListener(v->{
+            Navigation.findNavController(view).navigate(R.id.action_mapFragment_to_reviewFragment);
+        });
+        buttonSearch.setOnClickListener(v->{
+            Navigation.findNavController(view).navigate(R.id.action_mapFragment_to_searchFragment);
         });
         return view;
     }
