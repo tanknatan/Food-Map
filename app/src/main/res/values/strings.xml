@@ -28,4 +28,10 @@
     <string name="plus_1_1">plus__!__1</string>
     <string name="minus_1">minus_!</string>
     <string name="gps_1">gps_!</string>
+    <string name="sign_up" />
+    <string name="forgot_password__string" />
+    <string name="log_in">Войти</string>
+    <string name="password_string">Пароль</string>
+    <string name="login_string">Логин</string>
+    <string name="educator">Food Map</string>
 </resources>
