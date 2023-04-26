@@ -1,4 +1,4 @@
-package com.example.myproject;
+package com.example.myproject.ui.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -6,6 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
+
+import com.example.myproject.R;
 import com.example.myproject.databinding.MapRBinding;
 import com.yandex.mapkit.Animation;
 import com.yandex.mapkit.MapKitFactory;
@@ -21,8 +23,7 @@ public class MapFragment extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = MapRBinding.inflate(inflater);
         MapKitFactory.initialize(requireContext());
 
@@ -33,7 +34,7 @@ public class MapFragment extends Fragment {
                 new Animation(Animation.Type.SMOOTH, 0),
                 null);
         binding.user.setOnClickListener(v->{
-            Navigation.findNavController(binding.getRoot()).navigate(R.id.action_mapFragment_to_accountFragment);
+            Navigation.findNavController(binding.getRoot()).navigate(R.id.action_mapFragment_to_singinFragment);
         });
         binding.review.setOnClickListener(v->{
             Navigation.findNavController(binding.getRoot()).navigate(R.id.action_mapFragment_to_reviewFragment);

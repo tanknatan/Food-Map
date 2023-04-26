@@ -9,22 +9,19 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/lowBar"
         android:layout_marginTop="-1dp"
-        android:layout_marginBottom="1dp"
         android:background="@color/_bg__map_color"
         tools:layout_editor_absoluteX="5dp"
-        tools:layout_editor_absoluteY="0dp"
-        tools:ignore="VisualLintBounds">
+        tools:layout_editor_absoluteY="0dp">
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/lowBar"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_alignParentBottom="true"
+        android:layout_marginBottom="0dp"
         android:background="@drawable/rectangle_1_shape"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,9 +32,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center|left"
+            tools:ignore="RtlHardcoded"
             tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="10dp"
-            tools:ignore="RtlHardcoded">
+            tools:layout_editor_absoluteY="10dp">
 
             <androidx.appcompat.widget.AppCompatImageButton
                 android:id="@+id/map"

@@ -11,8 +11,9 @@
 
     <string name="welcome_ek3_string">welcome</string>
 
-    <string name="_________________string">Регистрация/Вход  </string>
+    <string name="enter">Регистрация/Вход  </string>
     <string name="fullname_string">FullName</string>
+    <string name="unknown">Новичёк</string>
 
     <string name="ek_img_content">ExportKit Image</string>
     <string name="__userid_string">userid</string>

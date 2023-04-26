@@ -7,11 +7,11 @@
 
     <fragment
         android:id="@+id/mapFragment"
-        android:name="com.example.myproject.MapFragment"
+        android:name="com.example.myproject.ui.fragments.MapFragment"
         android:label="fragment_map"
-        tools:layout="@layout/fragment_map" >
+        tools:layout="@layout/map_r" >
         <action
-            android:id="@+id/action_mapFragment_to_accountFragment"
+            android:id="@+id/action_mapFragment_to_userFragment"
             app:destination="@id/accountFragment" />
         <action
             android:id="@+id/action_mapFragment_to_reviewFragment"
@@ -19,45 +19,54 @@
         <action
             android:id="@+id/action_mapFragment_to_searchFragment"
             app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_mapFragment_to_singinFragment"
+            app:destination="@id/singinFragment" />
     </fragment>
     <fragment
-        android:id="@+id/singinFragment2"
-        android:name="com.example.myproject.singinFragment2"
-        android:label="fragment_singin2"
-        tools:layout="@layout/fragment_singin" >
+        android:id="@+id/singinFragment"
+        android:name="com.example.myproject.ui.fragments.singinFragment"
+        android:label="fragment_singin"
+        tools:layout="@layout/singin_r" >
         <action
-            android:id="@+id/action_singinFragment2_to_searchFragment"
+            android:id="@+id/action_singinFragment_to_searchFragment"
             app:destination="@id/searchFragment" />
         <action
-            android:id="@+id/action_singinFragment2_to_reviewFragment"
+            android:id="@+id/action_singinFragment_to_reviewFragment"
             app:destination="@id/reviewFragment" />
         <action
-            android:id="@+id/action_singinFragment2_to_mapFragment"
+            android:id="@+id/action_singinFragment_to_mapFragment"
             app:destination="@id/mapFragment" />
         <action
-            android:id="@+id/action_singinFragment2_to_accountFragment"
+            android:id="@+id/action_singinFragment_to_accountFragment"
             app:destination="@id/accountFragment" />
     </fragment>
     <fragment
         android:id="@+id/accountFragment"
-        android:name="com.example.myproject.accountFragment"
-        android:label="fragment_account"
-        tools:layout="@layout/fragment_account" >
+        android:name="com.example.myproject.ui.fragments.userFragment"
+        android:label="fragment_user"
+        tools:layout="@layout/user_r" >
         <action
             android:id="@+id/action_accountFragment_to_singinFragment2"
-            app:destination="@id/singinFragment2" />
+            app:destination="@id/singinFragment" />
         <action
             android:id="@+id/action_accountFragment_to_mapFragment"
             app:destination="@id/mapFragment" />
         <action
             android:id="@+id/action_accountFragment_to_searchFragment"
             app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_accountFragment_to_reviewFragment"
+            app:destination="@id/reviewFragment" />
+        <action
+            android:id="@+id/action_accountFragment_to_singinFragment"
+            app:destination="@id/singinFragment" />
     </fragment>
     <fragment
         android:id="@+id/welcomeFragment"
-        android:name="com.example.myproject.welcomeFragment"
+        android:name="com.example.myproject.ui.fragments.welcomeFragment"
         android:label="fragment_welcome"
-        tools:layout="@layout/fragment_welcome" >
+        tools:layout="@layout/welcome" >
         <action
             android:id="@+id/action_welcomeFragment_to_mapFragment"
             app:destination="@id/mapFragment" />
@@ -68,9 +77,9 @@
     </fragment>
     <fragment
         android:id="@+id/reviewFragment"
-        android:name="com.example.myproject.ReviewFragment"
+        android:name="com.example.myproject.ui.fragments.ReviewFragment"
         android:label="fragment_review"
-        tools:layout="@layout/fragment_review" >
+        tools:layout="@layout/review_r" >
         <action
             android:id="@+id/action_reviewFragment_to_accountFragment"
             app:destination="@id/accountFragment" />
@@ -80,12 +89,18 @@
         <action
             android:id="@+id/action_reviewFragment_to_searchFragment"
             app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_reviewFragment_to_singinFragment"
+            app:destination="@id/singinFragment" />
+        <action
+            android:id="@+id/action_reviewFragment_to_singinFragment2"
+            app:destination="@id/singinFragment" />
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
-        android:name="com.example.myproject.SearchFragment"
+        android:name="com.example.myproject.ui.fragments.SearchFragment"
         android:label="fragment_search"
-        tools:layout="@layout/fragment_search" >
+        tools:layout="@layout/search_r" >
         <action
             android:id="@+id/action_searchFragment_to_reviewFragment"
             app:destination="@id/reviewFragment" />
@@ -95,5 +110,8 @@
         <action
             android:id="@+id/action_searchFragment_to_mapFragment"
             app:destination="@id/mapFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_singinFragment"
+            app:destination="@id/singinFragment" />
     </fragment>
 </navigation>

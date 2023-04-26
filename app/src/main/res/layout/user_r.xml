@@ -11,14 +11,106 @@
         android:layout_height="match_parent"
         android:layout_above="@+id/lowBar"
         android:layout_marginTop="-1dp"
-        android:layout_marginBottom="1dp"
+        android:layout_marginBottom="-1dp"
         android:background="@color/_bg__map_color"
+        tools:ignore="VisualLintBounds"
         tools:layout_editor_absoluteX="5dp"
-        tools:layout_editor_absoluteY="0dp"
-        tools:ignore="VisualLintBounds">
+        tools:layout_editor_absoluteY="0dp">
+
+        <TextView
+            android:id="@+id/fullname2"
+            android:layout_width="311dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal|center"
+            android:background="@drawable/rectangle_6_shape"
+            android:gravity="center"
+            android:text="@string/fullname_string"
+            android:textColor="@color/fullname_color"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/achievements2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/user_3"
+            app:layout_constraintVertical_bias="0.619" />
+
+        <TextView
+            android:id="@+id/__userid2"
+            android:layout_width="108dp"
+            android:layout_height="36dp"
+            android:layout_gravity="center_horizontal|center"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="228dp"
+            android:gravity="center"
+            android:text="@string/__userid_string"
+            android:textColor="@color/__userid_color"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/quantity2"
+            android:layout_width="110dp"
+            android:layout_height="36dp"
+            android:layout_gravity="center_horizontal|center"
+            android:layout_marginTop="228dp"
+            android:layout_marginEnd="16dp"
+            android:gravity="center"
+            android:text="@string/quantity_string"
+            android:textColor="@color/__userid_color"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/achievements2"
+            android:layout_width="311dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal|center"
+            android:layout_marginBottom="256dp"
+            android:gravity="center"
+            android:text="@string/achievements_string"
+            android:textColor="@color/__userid_color"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/hamburger"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:contentDescription="hamburger_2"
+            android:background="@drawable/hamburger_2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/user_3"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:contentDescription="user_3"
+            android:src="@drawable/user_3"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.058" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/add"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:contentDescription="add_1"
+            android:background="@drawable/add_1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/lowBar"
@@ -89,6 +181,7 @@
                 app:layout_constraintStart_toEndOf="@+id/review"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.appcompat.widget.Toolbar>
 
