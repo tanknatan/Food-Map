@@ -13,23 +13,24 @@ import com.example.myproject.databinding.SinginRBinding;
 
 public class singinFragment extends Fragment {
 
-private SinginRBinding binding;
+    private SinginRBinding binding;
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = SinginRBinding.inflate(inflater);
         binding.enter.setOnClickListener(v->{
-            Navigation.findNavController(binding.getRoot()).navigate(R.id.action_mapFragment_to_enterFragment);
+            Navigation.findNavController(binding.getRoot()).navigate(R.id.action_singinFragment_to_enterFragment);
         });
-        binding.map.setOnClickListener(v->{
-            Navigation.findNavController(binding.getRoot()).navigate(R.id.action_accountFragment_to_mapFragment);
+        binding.map.setOnClickListener(v -> {
+            Navigation.findNavController(binding.getRoot()).navigate(R.id.action_singinFragment_to_mapFragment);
         });
-        binding.review.setOnClickListener(v->{
-            Navigation.findNavController(binding.getRoot()).navigate(R.id.action_accountFragment_to_reviewFragment);
+        binding.review.setOnClickListener(v -> {
+            Navigation.findNavController(binding.getRoot()).navigate(R.id.action_singinFragment_to_reviewFragment);
         });
-        binding.search.setOnClickListener(v->{
-            Navigation.findNavController(binding.getRoot()).navigate(R.id.action_accountFragment_to_searchFragment);
+        binding.search.setOnClickListener(v -> {
+            Navigation.findNavController(binding.getRoot()).navigate(R.id.action_singinFragment_to_searchFragment);
         });
         return binding.getRoot();
     }
+}

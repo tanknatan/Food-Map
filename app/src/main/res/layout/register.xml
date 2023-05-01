@@ -1,20 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
+
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-
-        <View
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="0dp"
-            android:background="@drawable/register_back" />
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="270dp"
-            android:background="@drawable/_bg__authentication_ek2_shape"/>
+        android:layout_height="match_parent"
+        android:background="@color/white">
 
 
         <TextView
@@ -25,20 +15,21 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="150dp"
-            android:text="Educate with Educat!"
-            android:textColor="@color/white"
+            android:gravity="center"
+            android:text="Food Map"
+            android:textColor="@color/black"
             android:textSize="40sp" />
 
 
         <ImageView
             android:id="@+id/usericon"
             android:layout_width="196dp"
-            android:layout_height="159dp"
+            android:layout_height="150dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="88dp"
-            android:src="@drawable/new_cat" />
+            android:src="@drawable/shawarma_1" />
 
         <Button
             android:id="@+id/createBtn"
@@ -48,28 +39,29 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="123dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="80dp"
             android:layout_marginEnd="123dp"
             android:background="@drawable/signbutton"
+            android:backgroundTint="@color/rectangle_6_color"
             android:contentDescription="signbutton"
             android:text="@string/register_btn"
-            android:textAllCaps="false"
             android:textColor="@color/white" />
 
         <Button
             android:id="@+id/alreadyHaveAccBtn"
             android:layout_width="138dp"
-            android:layout_height="48dp"
-            android:layout_below="@+id/createBtn"
+            android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
             android:layout_marginStart="123dp"
-            android:layout_marginTop="13dp"
+            android:layout_marginTop="4dp"
             android:layout_marginEnd="123dp"
-            android:backgroundTint="@color/colorPrimaryDark"
+            android:layout_marginBottom="120dp"
+            android:background="@drawable/signbutton"
+            android:backgroundTint="@color/rectangle_6_color"
             android:contentDescription="signbutton"
             android:text="@string/already_have_an_account"
-            android:textAllCaps="false"
             android:textColor="@color/white" />
 
         <RelativeLayout
@@ -106,28 +98,30 @@
 
         </RelativeLayout>
 
-        <RelativeLayout android:id="@+id/rememberme"
-            android:layout_marginTop="480dp"
+        <RelativeLayout
+            android:id="@+id/rememberme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="58dp"
+            android:layout_marginTop="480dp" />
+
+
+        <RelativeLayout
+            android:id="@+id/passwordbar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            />
-
-
-        <RelativeLayout android:id="@+id/passwordbar"
-            android:layout_marginTop="392dp"
+            android:layout_below="@+id/logintype"
             android:layout_centerHorizontal="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            >
+            android:layout_marginTop="1dp">
 
-            <ImageView android:id="@+id/passwordbar_ek1"
-                android:src="@drawable/passwordbar_ek1"
-                android:contentDescription="passwordbar_ek1"
+            <ImageView
+                android:id="@+id/passwordbar_ek1"
+                android:layout_width="330dp"
+                android:layout_height="48dp"
                 android:layout_marginStart="0dp"
                 android:layout_marginTop="10dp"
-                android:layout_width="330dp"
-                android:layout_height="48dp" />
+                android:contentDescription="passwordbar_ek1"
+                android:src="@drawable/passwordbar_ek1" />
 
             <EditText
                 android:id="@+id/password"
@@ -148,6 +142,42 @@
 
         </RelativeLayout>
 
+        <RelativeLayout
+            android:id="@+id/password2bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/passwordbar"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="2dp">
+
+            <ImageView
+                android:id="@+id/password2bar_ek1"
+                android:layout_width="330dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="10dp"
+                android:contentDescription="passwordbar_ek1"
+                android:src="@drawable/passwordbar_ek1" />
+
+            <EditText
+                android:id="@+id/password2"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_gravity="center_horizontal|center"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="10dp"
+                android:alpha="0.4"
+                android:gravity="left"
+                android:hint="@string/password_string2"
+                android:inputType="textPassword"
+                android:minHeight="48dp"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+        </RelativeLayout>
+
 
         <RelativeLayout
             android:id="@+id/logintype"
@@ -155,7 +185,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/usericon"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="48dp">
+            android:layout_marginTop="40dp">
 
             <ImageView
                 android:id="@+id/loginbar"
@@ -180,6 +210,7 @@
                 android:hint="@string/prompt_email"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
+
 
         </RelativeLayout>
     </RelativeLayout>

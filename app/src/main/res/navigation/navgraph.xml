@@ -40,6 +40,9 @@
         <action
             android:id="@+id/action_singinFragment_to_accountFragment"
             app:destination="@id/accountFragment" />
+        <action
+            android:id="@+id/action_singinFragment_to_enterFragment"
+            app:destination="@id/enterFragment" />
     </fragment>
     <fragment
         android:id="@+id/accountFragment"
@@ -113,5 +116,26 @@
         <action
             android:id="@+id/action_searchFragment_to_singinFragment"
             app:destination="@id/singinFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/enterFragment"
+        android:name="com.example.myproject.ui.fragments.EnterFragment"
+        android:label="fragment_enter"
+        tools:layout="@layout/enter" >
+        <action
+            android:id="@+id/action_enterFragment_to_singinFragment"
+            app:destination="@id/singinFragment" />
+        <action
+            android:id="@+id/action_enterFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.myproject.ui.fragments.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/register" >
+        <action
+            android:id="@+id/action_registerFragment_to_enterFragment"
+            app:destination="@id/enterFragment" />
     </fragment>
 </navigation>

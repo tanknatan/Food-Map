@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="ru.student.detected.educator.ui.activities.MainActivity">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/white">
         <View
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -20,13 +22,14 @@
             android:layout_below="@+id/educatlogo"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="0dp"
-            android:text="@string/educator"
-            android:textColor="@color/white"
+            android:text="@string/foodmap"
+            android:textColor="@color/black"
             android:textSize="70sp" />
 
         <ImageView android:id="@+id/usericon"
-            android:src="@drawable/user"
+            android:src="@drawable/user_1"
             android:contentDescription="usericon"
+            android:backgroundTint="@color/black"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="175dp"
             android:layout_width="58dp"
@@ -72,7 +75,7 @@
             android:layout_marginTop="368dp"
             android:gravity="center"
             android:text="@string/forgot_password__string"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="15sp" />
 
 
@@ -85,7 +88,7 @@
             android:layout_marginTop="15dp"
             android:gravity="center"
             android:text="@string/log_in"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="24sp" />
 
         <RelativeLayout android:id="@+id/passwordbar"

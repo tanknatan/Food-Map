@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- map strings -->
 
     <string name="mapButtonDescription">mapButton</string>
     <string name="searchButtonDescription">searchButton</string>
@@ -13,14 +12,12 @@
 
     <string name="enter">Регистрация/Вход  </string>
     <string name="fullname_string">FullName</string>
-    <string name="unknown">Новичёк</string>
+    <string name="unknown">Новичок</string>
 
     <string name="ek_img_content">ExportKit Image</string>
     <string name="__userid_string">userid</string>
     <string name="achievements_string">achievements</string>
     <string name="quantity_string">quantity</string>
-
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="____________________________string"> </string>
     <string name="compass_1">compass_!</string>
@@ -28,10 +25,15 @@
     <string name="plus_1_1">plus__!__1</string>
     <string name="minus_1">minus_!</string>
     <string name="gps_1">gps_!</string>
-    <string name="sign_up" />
-    <string name="forgot_password__string" />
+    <string name="sign_up">Регистрация </string>
+    <string name="forgot_password__string">Забыли пароль?</string>
     <string name="log_in">Войти</string>
     <string name="password_string">Пароль</string>
+    <string name="password_string2">Повторите пароль</string>
     <string name="login_string">Логин</string>
-    <string name="educator">Food Map</string>
+    <string name="foodmap">Food Map</string>
+    <string name="register_btn">Создать аккаунт</string>
+    <string name="already_have_an_account">Уже есть аккаунт?</string>
+    <string name="name_surname">Ник</string>
+    <string name="prompt_email">Email</string>
 </resources>
