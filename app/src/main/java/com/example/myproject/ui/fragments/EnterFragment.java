@@ -25,12 +25,11 @@ public class EnterFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = EnterBinding.inflate(inflater);
         binding.signbutton.setOnClickListener(v->{
+            Navigation.findNavController(binding.getRoot()).navigate(R.id.action_enterFragment_to_accountFragment);
+        });
+        binding.signUpButton.setOnClickListener(v->{
             Navigation.findNavController(binding.getRoot()).navigate(R.id.action_enterFragment_to_registerFragment);
         });
-        binding.signbutton.setOnClickListener(v->{
-            Navigation.findNavController(binding.getRoot()).navigate(R.id.action_mapFragment_to_reviewFragment);
-        });
-
         return binding.getRoot();
     }
 

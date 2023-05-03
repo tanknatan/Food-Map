@@ -34,13 +34,13 @@ public class MapFragment extends Fragment {
                 new Animation(Animation.Type.SMOOTH, 0),
                 null);
         binding.user.setOnClickListener(v->{
-            Navigation.findNavController(binding.getRoot()).navigate(R.id.action_mapFragment_to_singinFragment);
+            Navigation.findNavController(binding.getRoot()).navigate(MapFragmentDirections.actionMapFragmentToSinginFragment());
         });
         binding.review.setOnClickListener(v->{
-            Navigation.findNavController(binding.getRoot()).navigate(R.id.action_mapFragment_to_reviewFragment);
+            Navigation.findNavController(binding.getRoot()).navigate(MapFragmentDirections.actionMapFragmentToReviewFragment());
         });
         binding.search.setOnClickListener(v->{
-            Navigation.findNavController(binding.getRoot()).navigate(R.id.action_mapFragment_to_searchFragment);
+            Navigation.findNavController(binding.getRoot()).navigate(MapFragmentDirections.actionMapFragmentToSearchFragment());
         });
         return binding.getRoot();
     }

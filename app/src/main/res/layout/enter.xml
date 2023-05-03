@@ -1,169 +1,168 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="ru.student.detected.educator.ui.activities.MainActivity">
-    <RelativeLayout
-        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white">
-        <View
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+    tools:context="com.example.myproject.ui.fragments.EnterFragment"
+    android:background="@color/white">
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:color="@color/main"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/educatlogo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="0dp"
+        android:text="@string/foodmap"
+        android:textColor="@color/black"
+        android:textSize="70sp" />
+
+    <ImageView android:id="@+id/usericon"
+        android:src="@drawable/user_1"
+        android:contentDescription="usericon"
+        android:backgroundTint="@color/black"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="175dp"
+        android:layout_width="58dp"
+        android:layout_height="69dp" />
+
+
+    <Button
+        android:textAllCaps="false"
+        android:id="@+id/signbutton"
+        android:text="@string/log_in"
+        android:textColor="@color/white"
+        android:layout_width="138dp"
+        android:layout_height="48dp"
+        android:layout_below="@+id/passwordbar"
+        android:layout_alignEnd="@+id/passwordbar"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="0dp"
+        android:backgroundTint="@color/rectangle_6_color"
+        android:contentDescription="signbutton"
+        android:background="@drawable/signbutton" />
+
+    <Button
+        android:id="@+id/signUpButton"
+        android:layout_width="138dp"
+        android:layout_height="48dp"
+        android:layout_below="@+id/signbutton"
+        android:layout_alignStart="@+id/signbutton"
+        android:layout_alignEnd="@+id/passwordbar"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/signbutton"
+        android:backgroundTint="@color/rectangle_6_color"
+        android:contentDescription="signbutton"
+        android:text="@string/sign_up"
+        android:textAllCaps="false"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/forgot_password_"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|center"
+        android:layout_marginStart="232dp"
+        android:layout_marginTop="368dp"
+        android:gravity="center"
+        android:text="@string/forgot_password__string"
+        android:textColor="@color/black"
+        android:textSize="15sp" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/usericon"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal|center"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:text="@string/log_in"
+        android:textColor="@color/black"
+        android:textSize="24sp" />
+
+    <RelativeLayout android:id="@+id/passwordbar"
+        android:layout_marginTop="392dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+
+        <ImageView android:id="@+id/passwordbar_ek1"
+            android:src="@drawable/passwordbar_ek1"
+            android:contentDescription="passwordbar_ek1"
             android:layout_marginStart="0dp"
             android:layout_marginTop="0dp"
-            android:color="@color/main"/>
+            android:layout_width="330dp"
+            android:layout_height="48dp" />
 
-
-        <TextView
-            android:layout_width="wrap_content"
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/educatlogo"
-            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true"
+            android:layout_gravity="center_horizontal|center"
+            android:layout_marginStart="45dp"
             android:layout_marginTop="0dp"
-            android:text="@string/foodmap"
+            android:alpha="0.4"
+            android:gravity="left"
+            android:hint="@string/password_string"
+            android:inputType="textPassword"
+            android:minHeight="48dp"
             android:textColor="@color/black"
-            android:textSize="70sp" />
+            android:textSize="16sp" />
 
-        <ImageView android:id="@+id/usericon"
-            android:src="@drawable/user_1"
-            android:contentDescription="usericon"
-            android:backgroundTint="@color/black"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="175dp"
-            android:layout_width="58dp"
-            android:layout_height="69dp" />
-
-
-        <Button
-            android:textAllCaps="false"
-            android:id="@+id/signbutton"
-            android:text="@string/log_in"
-            android:textColor="@color/white"
-            android:layout_width="138dp"
-            android:layout_height="48dp"
-            android:layout_below="@+id/passwordbar"
-            android:layout_alignEnd="@+id/passwordbar"
-            android:layout_marginTop="26dp"
-            android:layout_marginEnd="0dp"
-            android:backgroundTint="@color/rectangle_6_color"
-            android:contentDescription="signbutton"
-            android:background="@drawable/signbutton" />
-
-        <Button
-            android:id="@+id/signUpButton"
-            android:layout_width="138dp"
-            android:layout_height="48dp"
-            android:layout_below="@+id/signbutton"
-            android:layout_alignStart="@+id/signbutton"
-            android:layout_alignEnd="@+id/passwordbar"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/signbutton"
-            android:backgroundTint="@color/rectangle_6_color"
-            android:contentDescription="signbutton"
-            android:text="@string/sign_up"
-            android:textAllCaps="false"
-            android:textColor="@color/white" />
-
-        <TextView
-            android:id="@+id/forgot_password_"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal|center"
-            android:layout_marginStart="232dp"
-            android:layout_marginTop="368dp"
-            android:gravity="center"
-            android:text="@string/forgot_password__string"
-            android:textColor="@color/black"
-            android:textSize="15sp" />
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/usericon"
-            android:layout_centerHorizontal="true"
-            android:layout_gravity="center_horizontal|center"
-            android:layout_marginTop="15dp"
-            android:gravity="center"
-            android:text="@string/log_in"
-            android:textColor="@color/black"
-            android:textSize="24sp" />
-
-        <RelativeLayout android:id="@+id/passwordbar"
-            android:layout_marginTop="392dp"
-            android:layout_centerHorizontal="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            >
-
-            <ImageView android:id="@+id/passwordbar_ek1"
-                android:src="@drawable/passwordbar_ek1"
-                android:contentDescription="passwordbar_ek1"
-                android:layout_marginStart="0dp"
-                android:layout_marginTop="0dp"
-                android:layout_width="330dp"
-                android:layout_height="48dp" />
-
-            <EditText
-                android:id="@+id/password"
-                android:layout_width="250dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_gravity="center_horizontal|center"
-                android:layout_marginStart="45dp"
-                android:layout_marginTop="0dp"
-                android:alpha="0.4"
-                android:gravity="left"
-                android:hint="@string/password_string"
-                android:inputType="textPassword"
-                android:minHeight="48dp"
-                android:textColor="@color/black"
-                android:textSize="16sp" />
-
-        </RelativeLayout>
-
-
-        <RelativeLayout android:id="@+id/logintype"
-            android:layout_marginTop="299dp"
-            android:layout_centerHorizontal="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            >
-
-            <ImageView android:id="@+id/loginbar"
-                android:src="@drawable/loginbar"
-                android:contentDescription="loginbar"
-                android:layout_marginStart="0dp"
-                android:layout_marginTop="0dp"
-                android:layout_width="330dp"
-                android:layout_height="48dp" />
-
-            <EditText
-                android:gravity="left"
-                android:id="@+id/login"
-                android:layout_width="250dp"
-                android:layout_height="48dp"
-                android:layout_alignParentTop="true"
-                android:layout_gravity="center_horizontal|center"
-                android:layout_marginStart="45dp"
-                android:layout_marginTop="0dp"
-                android:alpha="0.4"
-
-                android:hint="@string/login_string"
-                android:textColor="@color/black"
-                android:textSize="16sp" />
-
-        </RelativeLayout>
-
-        <ImageView android:id="@+id/educatlogo"
-            android:src="@drawable/shawarma_1"
-            android:layout_centerHorizontal="true"
-            android:contentDescription="educatlogo"
-            android:layout_marginStart="166dp"
-            android:layout_marginTop="13dp"
-            android:layout_width="79dp"
-            android:layout_height="73dp" />
     </RelativeLayout>
-</layout>
+
+
+    <RelativeLayout android:id="@+id/logintype"
+        android:layout_marginTop="299dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+
+        <ImageView android:id="@+id/loginbar"
+            android:src="@drawable/loginbar"
+            android:contentDescription="loginbar"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_width="330dp"
+            android:layout_height="48dp" />
+
+        <EditText
+            android:gravity="left"
+            android:id="@+id/login"
+            android:layout_width="250dp"
+            android:layout_height="48dp"
+            android:layout_alignParentTop="true"
+            android:layout_gravity="center_horizontal|center"
+            android:layout_marginStart="45dp"
+            android:layout_marginTop="0dp"
+            android:alpha="0.4"
+
+            android:hint="@string/login_string"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+    </RelativeLayout>
+
+    <ImageView android:id="@+id/educatlogo"
+        android:src="@drawable/shawarma_1"
+        android:layout_centerHorizontal="true"
+        android:contentDescription="educatlogo"
+        android:layout_marginStart="166dp"
+        android:layout_marginTop="13dp"
+        android:layout_width="79dp"
+        android:layout_height="73dp" />
+</RelativeLayout>

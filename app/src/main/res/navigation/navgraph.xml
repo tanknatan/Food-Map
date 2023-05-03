@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navgraph"
-    app:startDestination="@id/welcomeFragment">
+    app:startDestination="@id/mapFragment">
 
     <fragment
         android:id="@+id/mapFragment"
@@ -30,19 +30,29 @@
         tools:layout="@layout/singin_r" >
         <action
             android:id="@+id/action_singinFragment_to_searchFragment"
-            app:destination="@id/searchFragment" />
+            app:destination="@id/searchFragment"
+            app:popUpTo="@id/singinFragment"
+            app:popUpToInclusive="true"/>
         <action
             android:id="@+id/action_singinFragment_to_reviewFragment"
-            app:destination="@id/reviewFragment" />
+            app:destination="@id/reviewFragment"
+            app:popUpTo="@id/singinFragment"
+            app:popUpToInclusive="true"/>
         <action
             android:id="@+id/action_singinFragment_to_mapFragment"
-            app:destination="@id/mapFragment" />
+            app:destination="@id/mapFragment"
+            app:popUpTo="@id/singinFragment"
+            app:popUpToInclusive="true"/>
         <action
             android:id="@+id/action_singinFragment_to_accountFragment"
-            app:destination="@id/accountFragment" />
+            app:destination="@id/accountFragment"
+            app:popUpTo="@id/singinFragment"
+            app:popUpToInclusive="true"/>
         <action
             android:id="@+id/action_singinFragment_to_enterFragment"
-            app:destination="@id/enterFragment" />
+            app:destination="@id/enterFragment"
+            app:popUpTo="@id/singinFragment"
+            app:popUpToInclusive="true"/>
     </fragment>
     <fragment
         android:id="@+id/accountFragment"
@@ -51,19 +61,29 @@
         tools:layout="@layout/user_r" >
         <action
             android:id="@+id/action_accountFragment_to_singinFragment2"
-            app:destination="@id/singinFragment" />
+            app:destination="@id/singinFragment"
+            app:popUpTo="@id/accountFragment"
+            app:popUpToInclusive="true"/>
         <action
             android:id="@+id/action_accountFragment_to_mapFragment"
-            app:destination="@id/mapFragment" />
+            app:destination="@id/mapFragment"
+            app:popUpTo="@id/accountFragment"
+            app:popUpToInclusive="true"/>
         <action
             android:id="@+id/action_accountFragment_to_searchFragment"
-            app:destination="@id/searchFragment" />
+            app:destination="@id/searchFragment"
+            app:popUpTo="@id/accountFragment"
+            app:popUpToInclusive="true"/>
         <action
             android:id="@+id/action_accountFragment_to_reviewFragment"
-            app:destination="@id/reviewFragment" />
+            app:destination="@id/reviewFragment"
+            app:popUpTo="@id/accountFragment"
+            app:popUpToInclusive="true"/>
         <action
             android:id="@+id/action_accountFragment_to_singinFragment"
-            app:destination="@id/singinFragment" />
+            app:destination="@id/singinFragment"
+            app:popUpTo="@id/accountFragment"
+            app:popUpToInclusive="true"/>
     </fragment>
     <fragment
         android:id="@+id/welcomeFragment"
@@ -85,19 +105,28 @@
         tools:layout="@layout/review_r" >
         <action
             android:id="@+id/action_reviewFragment_to_accountFragment"
-            app:destination="@id/accountFragment" />
+            app:destination="@id/accountFragment"
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/reviewFragment"
+            />
         <action
             android:id="@+id/action_reviewFragment_to_mapFragment"
-            app:destination="@id/mapFragment" />
+            app:destination="@id/mapFragment"
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/reviewFragment"/>
         <action
             android:id="@+id/action_reviewFragment_to_searchFragment"
-            app:destination="@id/searchFragment" />
+            app:destination="@id/searchFragment"
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/reviewFragment"/>
         <action
             android:id="@+id/action_reviewFragment_to_singinFragment"
             app:destination="@id/singinFragment" />
         <action
             android:id="@+id/action_reviewFragment_to_singinFragment2"
-            app:destination="@id/singinFragment" />
+            app:destination="@id/singinFragment"
+            app:popUpTo="@id/reviewFragment"
+            app:popUpToInclusive="true"/>
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
@@ -106,16 +135,24 @@
         tools:layout="@layout/search_r" >
         <action
             android:id="@+id/action_searchFragment_to_reviewFragment"
-            app:destination="@id/reviewFragment" />
+            app:destination="@id/reviewFragment"
+            app:popUpTo="@id/searchFragment"
+            app:popUpToInclusive="true"/>
         <action
             android:id="@+id/action_searchFragment_to_accountFragment"
-            app:destination="@id/accountFragment" />
+            app:destination="@id/accountFragment"
+            app:popUpTo="@id/searchFragment"
+            app:popUpToInclusive="true"/>
         <action
             android:id="@+id/action_searchFragment_to_mapFragment"
-            app:destination="@id/mapFragment" />
+            app:destination="@id/mapFragment"
+            app:popUpTo="@id/searchFragment"
+            app:popUpToInclusive="true"/>
         <action
             android:id="@+id/action_searchFragment_to_singinFragment"
-            app:destination="@id/singinFragment" />
+            app:destination="@id/singinFragment"
+            app:popUpTo="@id/searchFragment"
+            app:popUpToInclusive="true"/>
     </fragment>
     <fragment
         android:id="@+id/enterFragment"
@@ -128,6 +165,12 @@
         <action
             android:id="@+id/action_enterFragment_to_registerFragment"
             app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_enterFragment_to_registerFragment2"
+            app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_enterFragment_to_accountFragment"
+            app:destination="@id/accountFragment" />
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
@@ -136,6 +179,9 @@
         tools:layout="@layout/register" >
         <action
             android:id="@+id/action_registerFragment_to_enterFragment"
+            app:destination="@id/enterFragment" />
+        <action
+            android:id="@+id/action_registerFragment_to_enterFragment2"
             app:destination="@id/enterFragment" />
     </fragment>
 </navigation>

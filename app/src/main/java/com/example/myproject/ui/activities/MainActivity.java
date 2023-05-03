@@ -29,6 +29,5 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         SplashScreen.installSplashScreen(this);
         setContentView(R.layout.activity_main);
-        MapKitFactory.setApiKey("c05592b5-812d-43c0-be28-bb57c88aa534");
     }
 }

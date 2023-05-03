@@ -23,13 +23,13 @@ public class singinFragment extends Fragment {
             Navigation.findNavController(binding.getRoot()).navigate(R.id.action_singinFragment_to_enterFragment);
         });
         binding.map.setOnClickListener(v -> {
-            Navigation.findNavController(binding.getRoot()).navigate(R.id.action_singinFragment_to_mapFragment);
+            Navigation.findNavController(binding.getRoot()).navigate(singinFragmentDirections.actionSinginFragmentToMapFragment());
         });
         binding.review.setOnClickListener(v -> {
-            Navigation.findNavController(binding.getRoot()).navigate(R.id.action_singinFragment_to_reviewFragment);
+            Navigation.findNavController(binding.getRoot()).navigate(singinFragmentDirections.actionSinginFragmentToReviewFragment());
         });
         binding.search.setOnClickListener(v -> {
-            Navigation.findNavController(binding.getRoot()).navigate(R.id.action_singinFragment_to_searchFragment);
+            Navigation.findNavController(binding.getRoot()).navigate(singinFragmentDirections.actionSinginFragmentToSearchFragment());
         });
         return binding.getRoot();
     }

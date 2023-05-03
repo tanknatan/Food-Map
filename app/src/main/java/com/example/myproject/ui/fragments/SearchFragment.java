@@ -22,13 +22,13 @@ private SearchRBinding binding;
         binding = SearchRBinding.inflate(inflater);
 
         binding.map.setOnClickListener(v->{
-            Navigation.findNavController(binding.getRoot()).navigate(R.id.action_searchFragment_to_mapFragment);
+            Navigation.findNavController(binding.getRoot()).navigate(SearchFragmentDirections.actionSearchFragmentToMapFragment());
         });
         binding.review.setOnClickListener(v->{
-            Navigation.findNavController(binding.getRoot()).navigate(R.id.action_searchFragment_to_reviewFragment);
+            Navigation.findNavController(binding.getRoot()).navigate(SearchFragmentDirections.actionSearchFragmentToReviewFragment());
         });
         binding.user.setOnClickListener(v->{
-            Navigation.findNavController(binding.getRoot()).navigate(R.id.action_searchFragment_to_singinFragment);
+            Navigation.findNavController(binding.getRoot()).navigate(SearchFragmentDirections.actionSearchFragmentToSinginFragment());
         });
 
         return binding.getRoot();

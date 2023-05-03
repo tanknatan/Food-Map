@@ -21,13 +21,13 @@ public class ReviewFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,  Bundle savedInstanceState) {
         binding = ReviewRBinding.inflate(inflater);
         binding.map.setOnClickListener(v->{
-            Navigation.findNavController(binding.getRoot()).navigate(R.id.action_reviewFragment_to_mapFragment);
+            Navigation.findNavController(binding.getRoot()).navigate(ReviewFragmentDirections.actionReviewFragmentToMapFragment());
         });
         binding.search.setOnClickListener(v->{
-            Navigation.findNavController(binding.getRoot()).navigate(R.id.action_reviewFragment_to_searchFragment);
+            Navigation.findNavController(binding.getRoot()).navigate(ReviewFragmentDirections.actionReviewFragmentToSearchFragment());
         });
         binding.user.setOnClickListener(v->{
-            Navigation.findNavController(binding.getRoot()).navigate(R.id.action_reviewFragment_to_singinFragment);
+            Navigation.findNavController(binding.getRoot()).navigate(ReviewFragmentDirections.actionReviewFragmentToAccountFragment());
         });
 
         return binding.getRoot();
