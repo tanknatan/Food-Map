@@ -60,7 +60,6 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation 'com.yandex.android:maps.mobile:4.3.1-lite'
-    implementation 'com.google.android.gms:play-services-location:21.0.1'
     implementation "androidx.core:core-splashscreen:1.0.1"
 
     annotationProcessor 'androidx.room:room-compiler:2.5.1' // Room

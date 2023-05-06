@@ -9,14 +9,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
-
 import com.example.myproject.R;
 import com.example.myproject.databinding.MapRBinding;
 import com.example.myproject.viewmodel.PointViewModel;
@@ -79,13 +77,19 @@ public class MapFragment extends Fragment {
             Navigation.findNavController(binding.getRoot()).navigate(MapFragmentDirections.actionMapFragmentToSearchFragment());
         });
 
-        userLocationLayer.setHeadingEnabled(true);
-        userLocationLayer.setObjectListener((UserLocationObjectListener) this);
-
         mapKit = MapKitFactory.getInstance();
+        userLocationLayer = mapKit.createUserLocationLayer(mapView.getMapWindow());
+
+        userLocationLayer.setHeadingEnabled(true);
+
+        mapObjects = mapView.getMap().getMapObjects().addCollection();
+        
+        userLocationLayer.setHeadingEnabled(true);
+
         mapObjects = mapView.getMap().getMapObjects().addCollection();
 
         userLocationLayer = mapKit.createUserLocationLayer(mapView.getMapWindow());
+
         userLocationLayer.setVisible(false);
         userLocationLayer.setObjectListener(locationObjectListener);
 
