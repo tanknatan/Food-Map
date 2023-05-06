@@ -13,9 +13,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 import com.example.myproject.R;
 import com.example.myproject.databinding.MapRBinding;
+import com.example.myproject.viewmodel.PointViewModel;
+import com.example.myproject.viewmodel.UserViewModel;
 import com.yandex.mapkit.Animation;
 import com.yandex.mapkit.MapKit;
 import com.yandex.mapkit.MapKitFactory;
@@ -44,6 +47,8 @@ public class MapFragment extends Fragment {
     private static final int REQUEST_LOCATION_PERMISSION = 1;
 
     private MapRBinding binding;
+    private UserViewModel UserViewModel;
+    private com.example.myproject.viewmodel.PointViewModel PointViewModel;
     private Point userPoint;
 
 
@@ -51,6 +56,7 @@ public class MapFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = MapRBinding.inflate(inflater);
+        UserViewModel =  new ViewModelProvider(getActivity()).get(UserViewModel.class);
 //        PlaceViewModel =  new ViewModelProvider(getActivity()).get(PlaceViewModel.class);
         MapKitFactory.initialize(requireContext());
 
@@ -77,6 +83,12 @@ public class MapFragment extends Fragment {
         userLocationLayer.setHeadingEnabled(true);
 
         mapObjects = mapView.getMap().getMapObjects().addCollection();
+        
+        userLocationLayer.setHeadingEnabled(true);
+
+        mapObjects = mapView.getMap().getMapObjects().addCollection();
+
+        userLocationLayer = mapKit.createUserLocationLayer(mapView.getMapWindow());
 
         userLocationLayer.setVisible(false);
         userLocationLayer.setObjectListener(locationObjectListener);
@@ -160,6 +172,12 @@ public class MapFragment extends Fragment {
         if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             return false;
         }
+        // Without this condition, the code receiver generates an error
+        UserViewModel.getData().observe(getViewLifecycleOwner(), userData -> {
+            userLatitude = userData.getLatitude();
+            userLongitude = userData.getLongitude();
+            zoomOnUser = 16.5f;
+        });
 
         userPoint = new Point(userLatitude, userLongitude);
 

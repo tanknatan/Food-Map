@@ -65,11 +65,9 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/positionButton"
                 android:background="@drawable/gps_1"
-
                 android:layout_width="38dp"
                 android:layout_height="38dp"
                 android:contentDescription="@string/compass_1"
-
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
 
