@@ -83,12 +83,6 @@ public class MapFragment extends Fragment {
         userLocationLayer.setHeadingEnabled(true);
 
         mapObjects = mapView.getMap().getMapObjects().addCollection();
-        
-        userLocationLayer.setHeadingEnabled(true);
-
-        mapObjects = mapView.getMap().getMapObjects().addCollection();
-
-        userLocationLayer = mapKit.createUserLocationLayer(mapView.getMapWindow());
 
         userLocationLayer.setVisible(false);
         userLocationLayer.setObjectListener(locationObjectListener);
