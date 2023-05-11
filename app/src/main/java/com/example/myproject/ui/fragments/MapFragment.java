@@ -131,10 +131,12 @@ public class MapFragment extends Fragment {
         binding.positionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mapView.getMap().move(
-                        new CameraPosition(userLocationLayer.cameraPosition().getTarget(), 15.0f, 0.0f, 0.0f),
-                        new Animation(Animation.Type.SMOOTH, 1),
-                        null);
+                if(userLocationLayer.cameraPosition()!=null) {
+                    mapView.getMap().move(
+                            new CameraPosition(userLocationLayer.cameraPosition().getTarget(), 15.0f, 0.0f, 0.0f),
+                            new Animation(Animation.Type.SMOOTH, 1),
+                            null);
+                }
             }
 
         });
