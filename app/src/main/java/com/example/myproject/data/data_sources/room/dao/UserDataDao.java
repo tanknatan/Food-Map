@@ -26,9 +26,6 @@ public interface UserDataDao {
     @Update
     void updateData(UserDataEntity userData);
 
-
-
-
-    @Query("SELECT * FROM PointEntity WHERE id = :id")
-    LiveData<PointEntity> getById(long id);
+//    @Query("SELECT * FROM UserDataEntity WHERE id = :id")
+//    LiveData<PointEntity> getById(long id);
 }

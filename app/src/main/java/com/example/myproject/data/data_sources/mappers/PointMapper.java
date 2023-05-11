@@ -7,7 +7,7 @@ public class PointMapper {
 
     public static Point toDomainModel(PointEntity entity){
         if (entity != null)
-            return new Point(entity.name, entity.icon, entity.latitude, entity.longitude);
+            return new Point(entity.id, entity.name, entity.radius, entity.icon, entity.latitude, entity.longitude);
         return null;
     }
 

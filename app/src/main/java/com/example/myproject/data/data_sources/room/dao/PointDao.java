@@ -8,27 +8,27 @@ import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 
 import com.example.myproject.data.data_sources.room.entities.PointEntity;
-
 import java.util.List;
-
-
 @Dao
+
 public interface PointDao {
 
     @Query("SELECT * FROM PointEntity")
-    LiveData<List<PointEntity>> getAllPoints();
+    LiveData<List<PointEntity>> getAllPlaces();
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void addPoint(PointEntity place);
+    void addPlace(PointEntity point);
 
     @Delete
-    void deletePoint(PointEntity place);
+    void deletePlace(PointEntity point);
 
     @Query("SELECT * FROM PointEntity WHERE latitude = :latitude AND longitude = :longitude")
     PointEntity findNameByLatitude(double latitude, double longitude);
 
+    @Query("SELECT COUNT(*) FROM PointEntity")
+    LiveData<Integer> count();
 
-    @Query("SELECT * FROM pointentity WHERE id = :id")
-    LiveData<PointEntity> getById(long id);
+//    @Query("SELECT * FROM PointEntity WHERE id = :id")
+//    LiveData<PointEntity> getById(long id);
 
 }

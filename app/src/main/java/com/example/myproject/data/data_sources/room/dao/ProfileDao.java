@@ -9,7 +9,6 @@ import androidx.room.Query;
 
 import com.example.myproject.data.data_sources.room.entities.PointEntity;
 import com.example.myproject.data.data_sources.room.entities.ProfileEntity;
-
 import java.util.List;
 @Dao
 public interface ProfileDao {
@@ -22,9 +21,6 @@ public interface ProfileDao {
     @Delete
     void deleteProfile(ProfileEntity profile);
 
-
-
-
-    @Query("SELECT * FROM PointEntity WHERE id = :id")
-    LiveData<PointEntity> getById(long id);
+//    @Query("SELECT * FROM ProfileEntity WHERE id = :id")
+//    LiveData<PointEntity> getById(long id);
 }

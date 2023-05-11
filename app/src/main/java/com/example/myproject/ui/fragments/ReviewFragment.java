@@ -27,7 +27,7 @@ public class ReviewFragment extends Fragment {
             Navigation.findNavController(binding.getRoot()).navigate(ReviewFragmentDirections.actionReviewFragmentToSearchFragment());
         });
         binding.user.setOnClickListener(v->{
-            Navigation.findNavController(binding.getRoot()).navigate(ReviewFragmentDirections.actionReviewFragmentToAccountFragment());
+            Navigation.findNavController(binding.getRoot()).navigate(ReviewFragmentDirections.actionReviewFragmentToSinginFragment());
         });
 
         return binding.getRoot();

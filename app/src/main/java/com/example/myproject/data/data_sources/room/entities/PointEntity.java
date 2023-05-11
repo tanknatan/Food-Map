@@ -5,11 +5,10 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 
-
 @Entity
 public class PointEntity {
 
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey
     public long id;
 
     @ColumnInfo(name = "icon_pass")
@@ -19,24 +18,27 @@ public class PointEntity {
     public double latitude;
     public double longitude;
     public String description;
+    public long radius;
 
     public PointEntity(){}
 
-    public PointEntity(String name, double latitude, double longitude){
+    public PointEntity(long id, String name, long radius, double latitude, double longitude){
+        this.id = id;
         this.icon = "default_question_mark";
         this.name = name;
+        this.radius = radius;
         this.latitude = latitude;
         this.longitude = longitude;
         this.description = "";
     }
 
-    public PointEntity(String name, String icon, double latitude, double longitude){
-        this(name, latitude, longitude);
+    public PointEntity(long id, String name, long radius, String icon, double latitude, double longitude){
+        this(id, name, radius,latitude, longitude);
         this.icon = icon;
     }
 
-    public PointEntity(String name, String icon, double latitude, double longitude, String description) {
-        this(name, icon, latitude, longitude);
+    public PointEntity(long id, String name, long radius, String icon, double latitude, double longitude, String description) {
+        this(id, name, radius, icon, latitude, longitude);
         this.description = description;
     }
 
