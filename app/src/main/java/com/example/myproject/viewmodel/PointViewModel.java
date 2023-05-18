@@ -6,31 +6,29 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
-import com.example.myproject.data.models.Point;
+import com.example.myproject.data.models.Place;
 import com.example.myproject.data.repositories.PointListRepository;
-
-
 
 import java.util.List;
 
 public class PointViewModel extends AndroidViewModel {
     private PointListRepository repo;
-    private LiveData<List<Point>> mPlaces;
+    private LiveData<List<Place>> mPoint;
 
     public PointViewModel(@NonNull Application application) {
         super(application);
         this.repo = new PointListRepository(application);
 //        mPlaces = repo.getTestData();
-        mPlaces = repo.getDataBaseData();
+        mPoint = repo.getDataBaseData();
     }
 
-    public LiveData<List<Point>> getPoint() {return mPlaces;}
+    public LiveData<List<Place>> getPlaces() {return mPoint;}
 
-    public void pushDataAll(List<Point> points){
-        for (int i = 0; i < points.size(); i++){repo.updateData(points.get(i));}
+    public void pushDataAll(List<Place> places){
+        for (int i = 0; i < places.size(); i++){repo.updateData(places.get(i));}
     }
 
-    public void addPlace(Point point){
+    public void addPlace(Place point){
         repo.updateData(point);
     }
 
@@ -38,7 +36,7 @@ public class PointViewModel extends AndroidViewModel {
         repo.generic();
     }
 
-    public Point findByCoordinates(double latitude, double longitude){
+    public Place findByCoordinates(double latitude, double longitude){
         return repo.findByCoordinates(latitude, longitude);
     }
 

@@ -14,14 +14,17 @@ import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
+
 import com.example.myproject.R;
+import com.example.myproject.data.models.Place;
 import com.example.myproject.databinding.MapRBinding;
 import com.example.myproject.viewmodel.PointViewModel;
 import com.example.myproject.viewmodel.UserViewModel;
@@ -72,6 +75,29 @@ public class MapFragment extends Fragment {
         mapObjects = mapView.getMap().getMapObjects().addCollection();
         userLocationLayer.setVisible(false);
         userLocationLayer.setObjectListener(locationObjectListener);
+
+        UserViewModel.refusedDataBase(getViewLifecycleOwner());
+
+        String hideAllStyle = "[" +
+                "        {" +
+                "            \"types\": \"point\"," +
+                "            \"tags\": {" +
+                "                \"all\": [" +
+                "                    \"poi\"" +
+                "                ]," +
+                "                \"none\": [" +
+                "                    \"outdoor\"," +
+                "                    \"major_landmark\"" +
+                "                ]" +
+                "            }," +
+                "            \"stylers\": {" +
+//                "                \"color\": \"f00\"" +
+                "                \"visibility\": \"off\"" +
+                "            }" +
+                "        }" +
+                "    ]";
+
+        mapView.getMap().setMapStyle(hideAllStyle);
 
 
         mapView.getMap().move(
@@ -131,10 +157,12 @@ public class MapFragment extends Fragment {
         binding.positionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mapView.getMap().move(
-                        new CameraPosition(userLocationLayer.cameraPosition().getTarget(), 15.0f, 0.0f, 0.0f),
-                        new Animation(Animation.Type.SMOOTH, 1),
-                        null);
+                if(userLocationLayer.cameraPosition()!=null) {
+                    mapView.getMap().move(
+                            new CameraPosition(userLocationLayer.cameraPosition().getTarget(), 15.0f, 0.0f, 0.0f),
+                            new Animation(Animation.Type.SMOOTH, 1),
+                            null);
+                }
             }
 
         });
@@ -257,16 +285,54 @@ public class MapFragment extends Fragment {
                 .requestPermissions(getActivity(), new String[]{Manifest.permission.ACCESS_BACKGROUND_LOCATION}, REQUEST_LOCATION_PERMISSION);
     }
 
-    private void createMapPlaces() {
+    private void createMapPlaces(){
 
         MapObjectTapListener objectTapListener = (mapObject, point) -> {
 
             PlacemarkMapObject localObject = (PlacemarkMapObject) mapObject;
             Object userData = localObject.getUserData();
-            if (userData instanceof Point) {
-                Toast.makeText(getContext(), ((com.example.myproject.data.models.Point) localObject.getUserData()).getName(), Toast.LENGTH_SHORT).show();
+            if (userData instanceof Place){
+                Toast.makeText(getContext(),((Place) localObject.getUserData()).getName(), Toast.LENGTH_SHORT).show();
             }
             return true;
         };
+
+        UserViewModel.getData().observe(getViewLifecycleOwner(), data -> {
+            PointViewModel.getPlaces().observe(getViewLifecycleOwner(), places -> {
+                for (Place place: places){
+                    if (userPoint != null && Place.calculateDistance(userPoint.getLatitude(), userPoint.getLongitude(), place) < Place.showDistance) {
+                        PlacemarkMapObject object = mapObjects.addPlacemark(new Point(place.getLatitude(), place.getLongitude()));
+                        object.setIcon(ImageProvider.fromResource(getContext(), R.drawable.pin),
+                                new IconStyle().setAnchor(new PointF(0.5f, 0.7f))
+                                        .setScale(0.04f));
+                        object.setVisible(true);
+                        object.setUserData(place);
+                        object.addTapListener(objectTapListener);
+                    } // Настройка видимости места
+
+//                    if (userPoint != null && Place.calculateDistance(userPoint.getLatitude(), userPoint.getLongitude(), place) < place.getRadius()){
+//                        boolean include = false;
+//                        for (Long mPlaces: data.getIdOfVisitedPlaces()){
+//                            if (mPlaces == point.getId()){
+//                                include = true;
+//                                break;
+//                            }
+//                        }
+//
+//                        if (!include){
+//                            UserViewModel.refusedDataBase(getViewLifecycleOwner());
+//                            UserViewModel.insertPlace(place.getId());
+//
+//                            binding.mapNotification.startAnimation(AnimationUtils.loadAnimation(getContext(),R.anim.visible_on));
+//                            binding.mapNotification.setVisibility(View.VISIBLE);
+//                            binding.mapNotification.setOnClickListener(v->{
+//                                NavHostFragment.findNavController(this).navigate(MapFragmentDirections.actionMapFragmentToVisitListFragmentOnMapList());
+//                            });
+//                        }
+//                    }
+                }
+            });
+        });
     }
+
 }

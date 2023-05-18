@@ -9,7 +9,7 @@ import com.example.myproject.data.data_sources.PointListDataSource;
 import com.example.myproject.data.data_sources.mappers.PointMapper;
 import com.example.myproject.data.data_sources.room.entities.PointEntity;
 import com.example.myproject.data.data_sources.room.root.AppDataBase;
-import com.example.myproject.data.models.Point;
+import com.example.myproject.data.models.Place;
 
 
 import java.util.ArrayList;
@@ -25,17 +25,17 @@ public class PointListRepository {
         this.dataBaseSource = AppDataBase.getDataBase(application);
     }
 
-    public LiveData<List<Point>> getTestData(){
+    public LiveData<List<Place>> getTestData(){
         return mDataSource.points();
     }
 
-    public LiveData<List<Point>> getDataBaseData(){
+    public LiveData<List<Place>> getDataBaseData(){
         return Transformations.map(
                 dataBaseSource.pointDao().getAllPlaces(),
                 (value) -> value.stream().map(PointMapper::toDomainModel).collect(Collectors.toList()));
     }
 
-    public void updateData(Point data){
+    public void updateData(Place data){
         AppDataBase.databaseWriteExecutor.execute(()->{
             dataBaseSource.pointDao().addPlace(new PointEntity(data.getId(), data.getName(), data.getRadius(), data.getIcon(), data.getLatitude(), data.getLongitude(), data.getDescription()));
         });
@@ -43,10 +43,10 @@ public class PointListRepository {
 
     public void generic(){
         AppDataBase.databaseWriteExecutor.execute(()->{
-            List<Point> placeList = new ArrayList<>();
+            List<Place> placeList = new ArrayList<>();
 
-            placeList.add(new Point(1, "Вкус востока", 50000000,""  ,55.71, 37.545));
-            for (Point point: placeList){
+            placeList.add(new Place(1, "Вкус востока", 500,""  ,55.71, 37.545));
+            for (Place point: placeList){
                 dataBaseSource.pointDao().addPlace(new PointEntity(point.getId(), point.getName(),point.getRadius(),point.getIcon(),point.getLatitude(),point.getLongitude()));
             }
 
@@ -57,7 +57,7 @@ public class PointListRepository {
         return dataBaseSource.pointDao().count();
     }
 
-    public Point findByCoordinates(double latitude, double longitude){
+    public Place findByCoordinates(double latitude, double longitude){
         return PointMapper.toDomainModel(dataBaseSource.pointDao().findNameByLatitude(latitude, longitude));
     }
 

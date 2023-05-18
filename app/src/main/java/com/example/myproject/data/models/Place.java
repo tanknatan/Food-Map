@@ -1,6 +1,6 @@
 package com.example.myproject.data.models;
 
-public class Point {
+public class Place {
     private long id;
     private String icon;
     private String name;
@@ -14,7 +14,7 @@ public class Point {
         return radius;
     }
 
-    public Point(long id, String name, long radius, double latitude, double longitude) {
+    public Place(long id, String name, long radius, double latitude, double longitude) {
         this.id = id;
         this.name = name;
         this.radius = radius;
@@ -23,25 +23,25 @@ public class Point {
         this.longitude = longitude;
     }
 
-    public Point(long id, String name, long radius, String icon, double latitude, double longitude) {
+    public Place(long id, String name, long radius, String icon, double latitude, double longitude) {
         this(id, name, radius,latitude, longitude);
         this.icon = icon;
     }
 
-    public Point(long id, String name, long radius, String icon, double latitude, double longitude, String description){
+    public Place(long id, String name, long radius, String icon, double latitude, double longitude, String description){
         this(id, name, radius, icon, latitude, longitude);
         this.description = description;
     }
 
     private static final double EARTH_RADIUS = 6371.0 * 1000.0; // Earth radius in meters
 
-    public static int calculateDistance(double userLatitude, double userLongitude, Point point) { // calculating distance in meters
+    public static int calculateDistance(double userLatitude, double userLongitude, Place place) { // calculating distance in meters
         if (userLatitude != 0) { // check do we have user data
-            double dLat = Math.toRadians(userLatitude - point.getLatitude());
-            double dLon = Math.toRadians(userLongitude - point.getLongitude());
+            double dLat = Math.toRadians(userLatitude - place.getLatitude());
+            double dLon = Math.toRadians(userLongitude - place.getLongitude());
 
             double a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-                    Math.cos(Math.toRadians(point.getLatitude())) * Math.cos(Math.toRadians(userLatitude)) *
+                    Math.cos(Math.toRadians(place.getLatitude())) * Math.cos(Math.toRadians(userLatitude)) *
                             Math.sin(dLon / 2) * Math.sin(dLon / 2);
 
             double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));

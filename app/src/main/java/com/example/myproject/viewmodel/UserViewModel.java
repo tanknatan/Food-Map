@@ -4,10 +4,12 @@ import android.Manifest;
 import android.app.Application;
 import android.content.pm.PackageManager;
 import android.location.Location;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LiveData;
 
 import com.example.myproject.data.models.UserData;
@@ -16,10 +18,13 @@ import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 
 
+import java.util.List;
+
 
 public class UserViewModel extends AndroidViewModel {
     private UserDataRepository repo;
     private LiveData<UserData> data;
+    private UserData localUser;
     private FusedLocationProviderClient fusedLocationProviderClient;
 
     public UserViewModel(@NonNull Application application) {
@@ -50,6 +55,8 @@ public class UserViewModel extends AndroidViewModel {
 
                 UserData tempData = new UserData(data.getValue().getName(),
                         data.getValue().getUserId(),
+                        data.getValue().getIdOfVisitedPlaces(),
+                        data.getValue().getIdFriends(),
                         location.getLatitude(),
                         location.getLongitude());
 
@@ -60,8 +67,77 @@ public class UserViewModel extends AndroidViewModel {
         return true;
     }
 
+    public void refusedDataBase(LifecycleOwner lifecycleOwner){
+        data.observe(lifecycleOwner, user->{
+            localUser = user;
+        });
+    }
+
     public void deleteUserData(UserData userdata){
         repo.deleteUser(userdata);
     }
 
+    public void insertPlace(long idToAdd){
+        insertPlaceInThread(idToAdd);
+    }
+
+    public void insertFriend(String idToAdd){
+        insertFriendInThread(idToAdd);
+    }
+
+    public void deleteFriend(String idToDel){
+        deleteFriendInThread(idToDel);
+    }
+
+    private void deleteFriendInThread(String idToDel){
+        if (localUser != null) {
+            new Thread(()-> {
+                synchronized (localUser) {
+                    for (String id : localUser.getIdFriends()) {
+                        if (id.equals(idToDel)) {
+                            localUser.deleteFriend(idToDel);
+                            repo.updateData(localUser);
+                            break;
+                        }
+                    }
+                }
+                updateData();
+            }).start();
+        };
+    }
+
+    private void insertFriendInThread(String idToAdd){
+        if (localUser != null) {
+            new Thread(()-> {
+                synchronized (localUser) {
+                    for (String id : localUser.getIdFriends()) {
+                        if (id.equals(idToAdd)) {
+                            return;
+                        }
+                    }
+                    localUser.addFriend(idToAdd);
+                    repo.updateData(localUser);
+                }
+                updateData();
+            }).start();
+            updateData();
+        }
+    }
+
+    private void insertPlaceInThread(long idToAdd){
+        if (localUser != null && localUser.getIdOfVisitedPlaces() != null) {
+            new Thread(()-> {
+                synchronized (localUser) {
+                    for (long id : localUser.getIdOfVisitedPlaces()) {
+                        if (id == idToAdd) {
+                            return;
+                        }
+                    }
+                    localUser.addVisitPlace(idToAdd);
+                    repo.updateData(localUser);
+                }
+            }).start();
+            updateData();
+        };
+    }
 }

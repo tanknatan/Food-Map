@@ -13,17 +13,9 @@ public class UserDataEntity {
     public double latitude;
     public double longitude;
 
+
     public UserDataEntity(){}
 
-    public UserDataEntity(String name, String userId){
-        this.name = name;
-        this.userId = userId;
-        this.id = 0;
-    }
 
-    public UserDataEntity(String name, String userId, double latitude, double longitude) {
-        this(name, userId);
-        this.latitude = latitude;
-        this.longitude = longitude;
-    }
 }
+
